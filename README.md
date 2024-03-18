@@ -6,3 +6,4 @@ Firebase
 Rutas anidadas
 Route Guards
 Storetorefs
+Varias peticiones a la vez

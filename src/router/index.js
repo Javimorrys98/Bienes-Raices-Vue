@@ -12,6 +12,11 @@ const router = createRouter({
       component: HomeView,
     },
     {
+      path: "/propiedades/:id",
+      name: "propiedad",
+      component: () => import('../views/PropiedadView.vue')
+    },
+    {
       path: "/login",
       name: "login",
       component: () => import("../views/LoginView.vue"),
@@ -23,19 +28,23 @@ const router = createRouter({
       meta: { requiresAuth: true },
       children: [
         {
-          path: "/admin/propiedades",
+          // Es lo mismo en caso de elementos hijos de otras rutas
+          // path: "/admin/propiedades",
+          path: "propiedades",
           name: "admin-propiedades",
           component: () => import("../views/admin/AdminView.vue"),
           meta: { requiresAuth: true },
         },
         {
           path: "/admin/nueva",
+          // path: "nueva",
           name: "nueva-propiedad",
           component: () => import("../views/admin/NuevaPropiedadView.vue"),
           meta: { requiresAuth: true },
         },
         {
-          path: "/admin/editar/:id",
+          // path: "/admin/editar/:id",
+          path: "editar/:id",
           name: "editar-propiedad",
           component: () => import("../views/admin/EditarPropiedadView.vue"),
           meta: { requiresAuth: true },
